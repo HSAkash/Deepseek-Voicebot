@@ -1,7 +1,7 @@
 import torch
 import torchaudio
 from pyprojroot import here
-from accord.utilts import get_config
+from accord.utils import get_config
 from transformers import WhisperProcessor, WhisperForConditionalGeneration
 
 class STT:

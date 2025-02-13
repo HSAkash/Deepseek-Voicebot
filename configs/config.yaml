@@ -1,0 +1,3 @@
+stt:
+  model_name: openai/whisper-base
+  gpu: true

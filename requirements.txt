@@ -1,8 +1,15 @@
-audio_recorder_streamlit
+audio-recorder-streamlit==0.0.10
+ipykernel>=6.29.5
 langchain-ollama>=0.2.3
+loguru
 ollama>=0.4.7
-streamlit>=1.41.1
-streamlit-float
-
-
+openai-whisper
+pyprojroot>=0.3.0
+python-box>=6.0.2
+PyYAML>=6.0.2
+streamlit==1.42.0
+streamlit-float==0.3.5
+torch>=2.6.0
+torchaudio>=2.6.0
+transformers>=4.48.3
 -e .

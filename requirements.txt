@@ -1,0 +1,8 @@
+audio_recorder_streamlit
+langchain-ollama>=0.2.3
+ollama>=0.4.7
+streamlit>=1.41.1
+streamlit-float
+
+
+-e .

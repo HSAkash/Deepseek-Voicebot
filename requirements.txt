@@ -1,6 +1,8 @@
 audio-recorder-streamlit==0.0.10
 ipykernel>=6.29.5
+langchain>=0.3.17
 langchain-ollama>=0.2.3
+langgraph>=0.2.68
 loguru
 ollama>=0.4.7
 openai-whisper

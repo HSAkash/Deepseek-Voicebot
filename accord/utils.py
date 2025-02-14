@@ -4,6 +4,9 @@ from box import ConfigBox
 from pathlib import Path
 from accord import logger
 from box.exceptions import BoxValueError
+from typing import List
+from accord.entity import Message
+
 
 
 
@@ -56,3 +59,25 @@ def create_directory(directory_path: str) -> None:
     """
     os.makedirs(directory_path, exist_ok=True)
     logger.info(f"Directory '{directory_path}' was created.")
+
+
+def remove_thinking_from_message(message:str)->str:
+    """removes thinking from message
+    Args:
+        message (str): message
+    Returns:
+        str: message without thinking
+    """
+    close_tag = "</think>"
+    tag_length = len(close_tag)
+    return message[message.find(close_tag) + tag_length:].strip()
+
+
+def create_history(welcone_message: Message) -> List[Message]:
+    """creates history
+    Args:
+        welcone_message (Message): welcome message
+    Returns:
+        List[Message]: list of messages
+    """
+    return [welcone_message]

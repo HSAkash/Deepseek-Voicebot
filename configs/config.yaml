@@ -1,3 +1,19 @@
 stt:
   model_name: openai/whisper-base
   gpu: true
+  audio_root: data/audio
+  audio_file: data/audio/temp_audio.mp3
+
+llm:
+  TEMPERATURE: 0.6
+  # MODEL_NAME: deepseek-r1:8b
+  MODEL_NAME: deepseek-r1:1.5b
+  SYSTEM_PROMPT: |
+    You're having a conversation with an user about excerpts of their files. Try to be helpful and answer their questions.
+    If you don't know the answer, say that you don't know and try to ask clarifying questions.
+
+  QUERY_TEMPLATE: |
+    Please, respond to the query below:
+
+    <question> {question} </question>
+    Answer:

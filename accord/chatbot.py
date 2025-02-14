@@ -1,9 +1,11 @@
+import os
 from pyprojroot import here
 from langgraph.graph import START, StateGraph
 from langgraph.graph.state import CompiledStateGraph
 from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
 from typing import List, Iterable
 from langchain_ollama import ChatOllama
+from accord.tts import TTS
 from accord.utils import get_config
 from accord.utils import remove_thinking_from_message
 from accord.entity import (
@@ -41,6 +43,7 @@ class Chatbot:
         )
 
         self.workflow = self._create_workflow()
+        self.tts = TTS()
 
     def _create_workflow(self) -> CompiledStateGraph:
         graph_builder = StateGraph(State)
@@ -92,6 +95,9 @@ class Chatbot:
             yield event
             if isinstance(event, FinalAnswerEvent):
                 response = remove_thinking_from_message("".join(event.content))
+                self.tts.speak(response, filePath=self.config.tts.audio_file)
+                self.tts.play_audio(self.config.tts.audio_file)
+                os.remove(self.config.tts.audio_file)
                 chat_history.append(Message(role=Role.USER, content=prompt))
                 chat_history.append(Message(role=Role.ASSISTANT, content=response))
 

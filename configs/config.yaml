@@ -16,3 +16,7 @@ llm:
 
     <question> {question} </question>
     Answer:
+
+tts:
+  audio_root: data/audio
+  audio_file: data/audio/temp_audio.wav

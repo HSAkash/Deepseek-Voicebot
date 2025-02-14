@@ -1,8 +1,7 @@
 stt:
   model_name: openai/whisper-base
-  gpu: true
   audio_root: data/audio
-  audio_file: data/audio/temp_audio.mp3
+  audio_file: data/audio/temp_audio.wav
 
 llm:
   TEMPERATURE: 0.6
